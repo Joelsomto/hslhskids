@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: hslhskids
+    runtime: docker
+    env: docker
+    buildCommand: docker build -t hslhskids .
+    startCommand: /usr/sbin/apache2ctl -D FOREGROUND
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_KEY
+        generateValue: true
+      - key: DB_HOST
+        sync: false  # Set this manually in Render dashboard
